@@ -264,13 +264,16 @@ function LivePage() {
 
       <div className="cartoon-card overflow-hidden mb-6 border-4 border-ir-yellow shadow-2xl bg-black">
         <div className="relative" style={{paddingTop: '56.25%'}}>
-          <iframe
-            src="https://www.youtube.com/embed/live_stream?channel=UCpBJ1UMfXkBCVFVm4e9XKWA&autoplay=1"
+          <video
             className="absolute inset-0 w-full h-full"
-            allow="autoplay; fullscreen; encrypted-media"
-            allowFullScreen
-            title="Карусель — прямой эфир"
-          />
+            controls
+            autoPlay
+            playsInline
+            poster="https://cdn.poehali.dev/projects/febd10f1-af71-4826-8fe5-484204f7a2ab/files/c4718eec-43bb-414e-ab95-9dea64f34995.jpg"
+          >
+            <source src="https://mhd.streamsteel.com/karusel/index.m3u8" type="application/x-mpegURL" />
+            Ваш браузер не поддерживает видео.
+          </video>
         </div>
       </div>
 
