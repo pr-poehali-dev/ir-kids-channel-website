@@ -304,12 +304,18 @@ function LivePage() {
     <div className="max-w-5xl mx-auto px-4 py-8 relative z-10">
       <div className="text-center mb-6">
         <h1 className="font-baloo font-extrabold text-4xl text-ir-pink mb-2">📡 Прямая трансляция</h1>
-        <p className="font-nunito text-muted-foreground text-lg">Смотри телеканал Карусель в прямом эфире</p>
+        <p className="font-nunito text-muted-foreground text-lg">Смотри телеканал Шаян ТВ в прямом эфире</p>
       </div>
 
       <div className="cartoon-card overflow-hidden mb-6 border-4 border-ir-yellow shadow-2xl bg-black">
         <div className="relative" style={{paddingTop: '56.25%'}}>
-          <HlsPlayer />
+          <iframe
+            src="https://rutube.ru/play/embed/25096583/"
+            className="absolute inset-0 w-full h-full"
+            allow="autoplay; fullscreen"
+            allowFullScreen
+            title="Шаян ТВ — прямой эфир"
+          />
         </div>
       </div>
 
@@ -317,7 +323,7 @@ function LivePage() {
         <div className="cartoon-card bg-white p-5 border-2 border-ir-pink/20 text-center">
           <div className="text-3xl mb-2">📺</div>
           <p className="font-baloo font-extrabold text-ir-pink text-lg">Канал</p>
-          <p className="font-nunito font-semibold text-foreground text-sm">Карусель</p>
+          <p className="font-nunito font-semibold text-foreground text-sm">Шаян ТВ</p>
         </div>
         <div className="cartoon-card bg-white p-5 border-2 border-ir-blue/20 text-center">
           <div className="text-3xl mb-2">🌟</div>
@@ -332,7 +338,7 @@ function LivePage() {
       </div>
 
       <a
-        href="https://karusel.ru/schedule"
+        href="https://rutube.ru/channel/25096583/"
         target="_blank"
         rel="noopener noreferrer"
         className="cartoon-card flex items-center justify-between bg-white p-5 border-2 border-ir-yellow/50 hover:border-ir-yellow transition-all group"
@@ -340,8 +346,8 @@ function LivePage() {
         <div className="flex items-center gap-3">
           <span className="text-3xl">📅</span>
           <div>
-            <p className="font-baloo font-extrabold text-ir-purple text-lg">Программа передач Карусели</p>
-            <p className="font-nunito text-muted-foreground text-sm">Официальное расписание на karusel.ru</p>
+            <p className="font-baloo font-extrabold text-ir-purple text-lg">Шаян ТВ на Rutube</p>
+            <p className="font-nunito text-muted-foreground text-sm">Официальный канал на rutube.ru</p>
           </div>
         </div>
         <Icon name="ArrowRight" size={20} className="text-ir-purple group-hover:translate-x-1 transition-transform" />
