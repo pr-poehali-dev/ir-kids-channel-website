@@ -274,11 +274,11 @@ function LivePage() {
         </div>
       </div>
 
-      <div className="grid md:grid-cols-3 gap-4">
+      <div className="grid md:grid-cols-3 gap-4 mb-4">
         <div className="cartoon-card bg-white p-5 border-2 border-ir-pink/20 text-center">
           <div className="text-3xl mb-2">🎬</div>
-          <p className="font-baloo font-extrabold text-ir-pink text-lg">В эфире</p>
-          <p className="font-nunito font-semibold text-foreground text-sm">{SCHEDULE[currentIdx].title}</p>
+          <p className="font-baloo font-extrabold text-ir-pink text-lg">Канал</p>
+          <p className="font-nunito font-semibold text-foreground text-sm">Карусель</p>
         </div>
         <div className="cartoon-card bg-white p-5 border-2 border-ir-blue/20 text-center">
           <div className="text-3xl mb-2">🌟</div>
@@ -291,6 +291,22 @@ function LivePage() {
           <p className="font-nunito font-semibold text-foreground text-sm">Стерео</p>
         </div>
       </div>
+
+      <a
+        href="https://karusel.ru/schedule"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="cartoon-card flex items-center justify-between bg-white p-5 border-2 border-ir-yellow/50 hover:border-ir-yellow transition-all group"
+      >
+        <div className="flex items-center gap-3">
+          <span className="text-3xl">📅</span>
+          <div>
+            <p className="font-baloo font-extrabold text-ir-purple text-lg">Программа передач Карусели</p>
+            <p className="font-nunito text-muted-foreground text-sm">Официальное расписание на karusel.ru</p>
+          </div>
+        </div>
+        <Icon name="ArrowRight" size={20} className="text-ir-purple group-hover:translate-x-1 transition-transform" />
+      </a>
     </div>
   );
 }
