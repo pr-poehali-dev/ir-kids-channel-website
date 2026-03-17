@@ -259,7 +259,7 @@ function LivePage() {
     <div className="max-w-5xl mx-auto px-4 py-8 relative z-10">
       <div className="text-center mb-6">
         <h1 className="font-baloo font-extrabold text-4xl text-ir-pink mb-2">📡 Прямая трансляция</h1>
-        <p className="font-nunito text-muted-foreground text-lg">Смотри телеканал Ир в прямом эфире</p>
+        <p className="font-nunito text-muted-foreground text-lg">Смотри телеканал Карусель в прямом эфире</p>
       </div>
 
       <div className="cartoon-card overflow-hidden mb-6 border-4 border-ir-yellow shadow-2xl bg-black">
@@ -269,7 +269,7 @@ function LivePage() {
             className="absolute inset-0 w-full h-full"
             allow="autoplay; fullscreen"
             allowFullScreen
-            title="Телеканал Карусель — прямой эфир"
+            title="Карусель — прямой эфир"
           />
         </div>
       </div>
