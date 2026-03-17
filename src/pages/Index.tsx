@@ -265,9 +265,9 @@ function LivePage() {
       <div className="cartoon-card overflow-hidden mb-6 border-4 border-ir-yellow shadow-2xl bg-black">
         <div className="relative" style={{paddingTop: '56.25%'}}>
           <iframe
-            src="https://smotrim.ru/embed/channel/70"
+            src="https://www.youtube.com/embed/live_stream?channel=UCpBJ1UMfXkBCVFVm4e9XKWA&autoplay=1"
             className="absolute inset-0 w-full h-full"
-            allow="autoplay; fullscreen"
+            allow="autoplay; fullscreen; encrypted-media"
             allowFullScreen
             title="Карусель — прямой эфир"
           />
