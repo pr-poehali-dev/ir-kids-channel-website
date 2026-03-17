@@ -262,12 +262,15 @@ function LivePage() {
         <p className="font-nunito text-muted-foreground text-lg">Смотри телеканал Ир в прямом эфире</p>
       </div>
 
-      <div className="cartoon-card overflow-hidden mb-6 border-4 border-ir-yellow shadow-2xl bg-gradient-to-br from-ir-purple/90 to-ir-pink/90">
-        <div className="relative flex flex-col items-center justify-center py-20 px-8 text-center">
-          <div className="text-7xl mb-6 animate-bounce-in">📺</div>
-          <h2 className="font-baloo font-extrabold text-white text-3xl mb-3">Трансляция скоро появится</h2>
-          <p className="font-nunito text-white/80 text-lg mb-2">Мы подключаем прямой эфир телеканала Ир</p>
-          <p className="font-nunito text-white/60 text-sm">Следите за обновлениями 🌟</p>
+      <div className="cartoon-card overflow-hidden mb-6 border-4 border-ir-yellow shadow-2xl bg-black">
+        <div className="relative" style={{paddingTop: '56.25%'}}>
+          <iframe
+            src="https://smotrim.ru/embed/channel/70"
+            className="absolute inset-0 w-full h-full"
+            allow="autoplay; fullscreen"
+            allowFullScreen
+            title="Телеканал Карусель — прямой эфир"
+          />
         </div>
       </div>
 
