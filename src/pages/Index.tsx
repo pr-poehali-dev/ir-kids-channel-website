@@ -1,4 +1,5 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
+import Hls from "hls.js";
 import Icon from "@/components/ui/icon";
 
 type Page = "home" | "live" | "schedule";
@@ -253,8 +254,52 @@ function HomePage({ setPage }: { setPage: (p: Page) => void }) {
   );
 }
 
+const HLS_URL = "https://mhd.streamsteel.com/karusel/index.m3u8";
+
+function HlsPlayer() {
+  const videoRef = useRef<HTMLVideoElement>(null);
+  const [error, setError] = useState(false);
+
+  useEffect(() => {
+    const video = videoRef.current;
+    if (!video) return;
+    setError(false);
+
+    if (Hls.isSupported()) {
+      const hls = new Hls({ enableWorker: true });
+      hls.loadSource(HLS_URL);
+      hls.attachMedia(video);
+      hls.on(Hls.Events.MANIFEST_PARSED, () => video.play().catch(() => {}));
+      hls.on(Hls.Events.ERROR, (_e, data) => { if (data.fatal) setError(true); });
+      return () => hls.destroy();
+    } else if (video.canPlayType("application/vnd.apple.mpegurl")) {
+      video.src = HLS_URL;
+      video.play().catch(() => {});
+    } else {
+      setError(true);
+    }
+  }, []);
+
+  if (error) return (
+    <div className="absolute inset-0 flex flex-col items-center justify-center bg-gradient-to-br from-ir-purple/90 to-ir-pink/90 text-white text-center p-8">
+      <div className="text-6xl mb-4">📡</div>
+      <p className="font-baloo font-extrabold text-2xl mb-2">Трансляция недоступна</p>
+      <p className="font-nunito text-white/80 text-sm">Попробуйте обновить страницу или зайдите позже</p>
+    </div>
+  );
+
+  return (
+    <video
+      ref={videoRef}
+      className="absolute inset-0 w-full h-full"
+      controls
+      playsInline
+      poster="https://cdn.poehali.dev/projects/febd10f1-af71-4826-8fe5-484204f7a2ab/files/c4718eec-43bb-414e-ab95-9dea64f34995.jpg"
+    />
+  );
+}
+
 function LivePage() {
-  const currentIdx = getCurrentShowIndex();
   return (
     <div className="max-w-5xl mx-auto px-4 py-8 relative z-10">
       <div className="text-center mb-6">
@@ -264,22 +309,13 @@ function LivePage() {
 
       <div className="cartoon-card overflow-hidden mb-6 border-4 border-ir-yellow shadow-2xl bg-black">
         <div className="relative" style={{paddingTop: '56.25%'}}>
-          <video
-            className="absolute inset-0 w-full h-full"
-            controls
-            autoPlay
-            playsInline
-            poster="https://cdn.poehali.dev/projects/febd10f1-af71-4826-8fe5-484204f7a2ab/files/c4718eec-43bb-414e-ab95-9dea64f34995.jpg"
-          >
-            <source src="https://mhd.streamsteel.com/karusel/index.m3u8" type="application/x-mpegURL" />
-            Ваш браузер не поддерживает видео.
-          </video>
+          <HlsPlayer />
         </div>
       </div>
 
       <div className="grid md:grid-cols-3 gap-4 mb-4">
         <div className="cartoon-card bg-white p-5 border-2 border-ir-pink/20 text-center">
-          <div className="text-3xl mb-2">🎬</div>
+          <div className="text-3xl mb-2">📺</div>
           <p className="font-baloo font-extrabold text-ir-pink text-lg">Канал</p>
           <p className="font-nunito font-semibold text-foreground text-sm">Карусель</p>
         </div>
