@@ -254,7 +254,7 @@ function HomePage({ setPage }: { setPage: (p: Page) => void }) {
   );
 }
 
-const HLS_URL = "https://mhd.streamsteel.com/karusel/index.m3u8";
+const HLS_URL = "http://zabava-htlive.cdn.ngenix.net/hls/CH_KARUSEL/variant.m3u8";
 
 function HlsPlayer() {
   const videoRef = useRef<HTMLVideoElement>(null);
